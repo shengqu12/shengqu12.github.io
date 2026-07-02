@@ -133,54 +133,19 @@
   </article>
 
   <!-- Project 2 -->
-  <article class="project">
-    <div class="project-media">
-      <svg class="pipe" viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline diagram: VLM scores robot behavior, a lightweight reward model distills the scores, and an RL policy trains on the combined reward">
-        <g font-family="'IBM Plex Mono', monospace" font-size="12" text-anchor="middle">
-          <rect x="20"  y="60" width="150" height="66" rx="6" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
-          <text x="95" y="88"  fill="var(--ink)">VLM judge</text>
-          <text x="95" y="106" fill="var(--slate)" font-size="10.5">social compliance</text>
-
-          <rect x="245" y="60" width="150" height="66" rx="6" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
-          <text x="320" y="88"  fill="var(--ink)">reward model</text>
-          <text x="320" y="106" fill="var(--slate)" font-size="10.5">lightweight distilled</text>
-
-          <rect x="470" y="60" width="150" height="66" rx="6" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
-          <text x="545" y="88"  fill="var(--ink)">RL policy</text>
-          <text x="545" y="106" fill="var(--slate)" font-size="10.5">r_task + λ·r_social</text>
-
-          <g stroke="var(--scan)" stroke-width="1.5" fill="var(--scan)">
-            <line x1="170" y1="93" x2="235" y2="93"/><path d="M235 93 l-8 -4 v8 z"/>
-            <line x1="395" y1="93" x2="460" y2="93"/><path d="M460 93 l-8 -4 v8 z"/>
-          </g>
-          <text x="320" y="170" fill="var(--signal)" font-size="11">my part: pedestrian behavior &amp; scene diversity in simulation</text>
-          <path d="M320 158 v-24" stroke="var(--signal)" stroke-width="1" stroke-dasharray="2 4"/>
-        </g>
-      </svg>
-    </div>
+  <article class="project project-compact">
     <div class="project-body">
       <p class="meta mono">
         <span class="tag tag-active">Active</span>
-        Role — pedestrian behavior &amp; simulation realism ·
-        With — Howard, Yulin, Jiacheng
+        Role — pedestrian behavior modeling &amp; simulation realism · Team project
       </p>
-      <h3>VLM-guided reward learning for socially compliant navigation</h3>
+      <h3>Socially compliant robot navigation in simulation</h3>
       <p>
-        Can a vision-language model judge whether a robot's navigation behavior would read
-        as socially acceptable to the humans around it — and can those judgments be
-        distilled into a reward model cheap enough to train against? The pipeline scores
-        robot behavior with a VLM, distills the scores into a lightweight surrogate reward
-        model, and trains navigation policies with the combined task + social reward.
-      </p>
-      <p>
-        My contribution attacks the data side: policies are only as socially competent as
-        the pedestrians they train against. I design the simulated crowd — personality
-        variation, belief-state reasoning layers, social group formations, and pedestrian
-        categories — to close the realism gap between simulation and real public space,
-        currently on the SEAN 2.0 (Unity + ROS) platform.
-      </p>
-      <p class="links mono">
-        <a href="https://github.com/shengqu12/Metaurban_For_Social_Navigation" target="_blank" rel="noopener">Code ↗</a>
+        Ongoing team project on learning navigation policies that people would find
+        socially acceptable. My part is the pedestrian side of the simulator: modeling
+        personality variation, social group formations, and belief-state reasoning, so
+        that policies train against crowds that behave like real ones — narrowing the
+        sim-to-real gap. More details as the work matures.
       </p>
     </div>
   </article>

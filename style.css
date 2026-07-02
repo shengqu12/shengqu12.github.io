@@ -237,3 +237,7 @@ a:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-
   .nav-links a { font-size: 0.75rem; }
   .section { padding: 3rem 1.2rem; }
 }
+
+/* compact project variant (no media column) */
+.project-compact { grid-template-columns: 1fr; }
+.project-compact .project-body { max-width: 68ch; }

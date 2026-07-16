@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunt Library LiDAR — Demo</title>
+<script>
+  // ======= EDIT THIS ONE LINE when the demo video / live demo is ready =======
+  const REDIRECT_URL = "";   // e.g. "https://youtu.be/XXXXXXX"
+  // ===========================================================================
+  if (REDIRECT_URL) window.location.replace(REDIRECT_URL);
+</script>
+<style>
+  :root { --pink:#F2A6BB; --dark:#9C1846; --ink:#1a1a1a; }
+  body { margin:0; background:#111; color:#eee;
+         font-family:system-ui,-apple-system,sans-serif;
+         min-height:100vh; display:flex; align-items:center; justify-content:center; }
+  .card { max-width:560px; margin:24px; background:#1a1a1a; border-radius:16px;
+          overflow:hidden; border:1px solid #333; }
+  .head { background:var(--pink); color:var(--ink); padding:18px 24px;
+          font-weight:800; font-size:1.15rem; }
+  .body { padding:24px; line-height:1.6; }
+  .btn  { display:inline-block; margin-top:12px; padding:12px 20px;
+          background:var(--dark); color:#fff; border-radius:10px;
+          text-decoration:none; font-weight:700; }
+  .muted { color:#9a9a9a; font-size:.9rem; margin-top:18px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">Affordance vs. Realization — Hunt Library LiDAR</div>
+    <div class="body">
+      <p>How physical space shapes spontaneous social interaction. A six-node
+         ceiling-mounted LiDAR sensing system in CMU's Hunt Library —
+         privacy-preserving by design (no RGB, no faces, no audio).</p>
+      <p id="cta"><strong>Demo video coming soon.</strong> Check back shortly!</p>
+      <p class="muted">NSF SAI Award #2425121 · Carnegie Mellon University<br>
+         Sheng Qu · Mario Bergés · Katherine Flanigan</p>
+    </div>
+  </div>
+  <script>
+    if (REDIRECT_URL) {
+      document.getElementById('cta').innerHTML =
+        'Redirecting to the demo… <br><a class="btn" href="' + REDIRECT_URL +
+        '">Open demo</a>';
+    }
+  </script>
+</body>
+</html>

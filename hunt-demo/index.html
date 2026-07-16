@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hunt Library LiDAR — Demo</title>
 <script>
-  // ======= EDIT THIS ONE LINE when the demo video / live demo is ready =======
-  const REDIRECT_URL = "https://sheng-linux.tail5f2901.ts.net/";   // e.g. "https://youtu.be/XXXXXXX"
-  // ===========================================================================
-  if (REDIRECT_URL) window.location.replace(REDIRECT_URL);
+  // ======= EDIT THESE when things move =======
+  const LIVE_URL = "https://sheng-linux.tail5f2901.ts.net/"; // live dashboard (Funnel); "" = none
+  const PROBE_MS = 3000;                                     // liveness check timeout
+  // ===========================================
 </script>
 <style>
   :root { --pink:#F2A6BB; --dark:#9C1846; --ink:#1a1a1a; }
@@ -33,17 +33,33 @@
       <p>How physical space shapes spontaneous social interaction. A six-node
          ceiling-mounted LiDAR sensing system in CMU's Hunt Library —
          privacy-preserving by design (no RGB, no faces, no audio).</p>
-      <p id="cta"><strong>Demo video coming soon.</strong> Check back shortly!</p>
+      <p id="cta"><strong>Checking whether the live dashboard is up…</strong></p>
       <p class="muted">NSF SAI Award #2425121 · Carnegie Mellon University<br>
          Sheng Qu · Mario Bergés · Katherine Flanigan</p>
     </div>
   </div>
   <script>
-    if (REDIRECT_URL) {
-      document.getElementById('cta').innerHTML =
-        'Redirecting to the demo… <br><a class="btn" href="' + REDIRECT_URL +
-        '">Open demo</a>';
-    }
+    (async () => {
+      const cta = document.getElementById('cta');
+      if (!LIVE_URL) {
+        cta.innerHTML = '<strong>Demo video coming soon.</strong> Check back shortly!';
+        return;
+      }
+      const ctl = new AbortController();
+      const t = setTimeout(() => ctl.abort(), PROBE_MS);
+      try {
+        await fetch(LIVE_URL, { mode: 'no-cors', cache: 'no-store', signal: ctl.signal });
+        clearTimeout(t);
+        cta.innerHTML = 'Live dashboard is up — taking you there… ' +
+          '<br><a class="btn" href="' + LIVE_URL + '">Open now</a>';
+        location.replace(LIVE_URL);
+      } catch (e) {
+        clearTimeout(t);
+        cta.innerHTML = 'The <strong>live dashboard is currently offline</strong> — ' +
+          'it runs during demo sessions.' +
+          '<br><a class="btn" href="' + LIVE_URL + '">Try anyway</a>';
+      }
+    })();
   </script>
 </body>
 </html>
